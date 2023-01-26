@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 const PokeRandom = () => {
@@ -6,7 +5,7 @@ const PokeRandom = () => {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon?limit=500')
+        fetch('https://pokeapi.co/api/v2/pokemon?limit=898')
             .then(response => response.json())
             .then(data => {
                 setPokemonList(data.results);
