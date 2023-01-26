@@ -1,25 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import PokeList from './components/PokeList';
+import PokeRandom from './components/PokeRandom';
+
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [started, setStarted] = React.useState(false)
+  const [startedrandom, setStartedrandom] = React.useState(false)
+
+
+  ReactDOM.render(
+    <>
+      <button onClick={() => setStarted(true)} className="btn btn-primary">PokeList</button>
+      <button onClick={() => setStartedrandom(true)} className="btn btn-primary">PokeRandom</button>
+      { started && <PokeList />}
+      { startedrandom && <PokeRandom />}
+
+    </>
+  , document.getElementById('root'));
 }
 
 export default App;
