@@ -30,11 +30,15 @@ const PokeFav = ({ pokemon,favPokemon,setFavPokemon }) => {
     }
 
     return (
+        //create a buton with two image for add and remove
         <button onClick={handleFavClick} className="btn btn-primary">
+
             {isFav ? 'Remove from fav' : 'Add to fav'}
             <img className="pokemon-icon" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`} alt={pokemon.name}/>
         </button>
     )
 }
-
+/*<button onClick={handleFavClick} className="btn btn-primary">
+            {isFav ? <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`} alt={pokemon.name} /> : <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemonId}.png`} alt={pokemon.name} />}
+        </button>*/
 export default PokeFav;

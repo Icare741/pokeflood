@@ -27,7 +27,7 @@ function App() {
       <button className="btn btn-primary">PokeList</button>
       <button onClick={(e) => handlePokeRandomClick()} className="btn btn-primary">PokeRandom</button>
 
-      <button  onClick={(e) => setShowFavPokemon(!showFavPokemon)}>Show Favorite Pokemon</button>
+      <button  onClick={(e) => setShowFavPokemon(!showFavPokemon)} className="btn btn-primary">Show Favorite Pokemon</button>
 
       {
         pokeRandom &&
