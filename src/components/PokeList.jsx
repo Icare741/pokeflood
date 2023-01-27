@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import PokeFav from './PokeFav';
 
-function PokeList() {
+function PokeList({ pokemonList, setPokemonList, favPokemon, setFavPokemon }) {
 
-    const [pokemonList, setPokemonList] = useState([]) // State
-    const [loaded, setLoaded] = useState(false)
+    const [loaded, setLoaded] = useState(false)// state pour loading de pokemon
     const [searchValue, setSearchValue] = useState("") // state pour la barre de recherche
     const [filteredPokemonList, setFilteredPokemonList] = useState([]) // state pour la liste filtrée
 
     useEffect(() => {
-      fetch('https://pokeapi.co/api/v2/pokemon?limit=500')
+      fetch('https://pokeapi.co/api/v2/pokemon?limit=898')
         .then(response => response.json())
         .then(data => { 
           setPokemonList(data.results)
@@ -33,10 +33,11 @@ function PokeList() {
         <li key={index} className="bg-red-400">
         <img className="pokemon-icon" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`} alt={pokemon.name}/>
         {pokemon.name}
+        <PokeFav pokemon={pokemon} favPokemon={favPokemon} setFavPokemon={setFavPokemon} />
+      
       </li>
       ) 
     })
-  
   
     return (
       <div className="PokeList">
