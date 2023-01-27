@@ -12,7 +12,8 @@ function PokeList({ pokemonList, setPokemonList, favPokemon, setFavPokemon }) {
     const handleBackSprite = (pokemonId) => {
       setSelectedPokemonId(pokemonId);
       setIsBackSprite(!isBackSprite);
-  }
+    }
+    
   
 
     useEffect(() => {
@@ -45,7 +46,7 @@ function PokeList({ pokemonList, setPokemonList, favPokemon, setFavPokemon }) {
             <img src={selectedPokemonId === pokemonId ? (isBackSprite ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemonId}.png` : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`) : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`} alt={pokemon.name} />
             <PokeFav pokemon={pokemon} favPokemon={favPokemon} setFavPokemon={setFavPokemon} />
             <button onClick={() => handleBackSprite(pokemonId)} className="btn btn-primary">
-              { selectedPokemonId === pokemonId ? 'Front' : 'Back'}
+              {isBackSprite ? 'Front' : 'Back'}
             </button>
           </div>
         </div>
