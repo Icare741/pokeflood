@@ -10,6 +10,13 @@ function App() {
 
   const [favPokemon, setFavPokemon] = useState([])
   const [showFavPokemon, setShowFavPokemon] = useState(false)
+  const [displayPokeList, setDisplayPokeList] = useState(true);
+  const [isButtonSfav, setIsButtonSfav] = useState(false);
+  
+  const handleClick = () => {
+    setShowFavPokemon(!showFavPokemon);
+    setIsButtonSfav(!isButtonSfav);
+  };
 
   useEffect(() => {
     // get from localstorage
@@ -24,10 +31,11 @@ function App() {
 
   return (
     <>
-      <button className="btn btn-primary">PokeList</button>
-      <button onClick={(e) => handlePokeRandomClick()} className="btn btn-primary">PokeRandom</button>
+      <div className="button-container">
+        <button onClick={(e) => handlePokeRandomClick()} className="btn btn-primary">PokeRandom</button>
+        <button className="btn btn-primary" onClick={handleClick}>{isButtonSfav ? 'PokeList' : 'Show Favorite Pokemon'}</button>
+      </div>
 
-      <button  onClick={(e) => setShowFavPokemon(!showFavPokemon)} className="btn btn-primary">Show Favorite Pokemon</button>
 
       {
         pokeRandom &&
@@ -39,6 +47,7 @@ function App() {
       {showFavPokemon && favPokemon &&
         favPokemon.map((pokemon, index) => {
           return (
+            console.log(index),
             <div key={index}>
               <h1> {pokemon.name}</h1>
             </div>
@@ -46,11 +55,10 @@ function App() {
         }
         )
       }
-
-      {favPokemon &&
-
-        <PokeList pokemonList={pokemonList} setPokemonList={setPokemonList} favPokemon={favPokemon} setFavPokemon={setFavPokemon} />
-      }
+      
+      
+      {!showFavPokemon && <PokeList pokemonList={pokemonList} setPokemonList={setPokemonList} favPokemon={favPokemon} setFavPokemon={setFavPokemon} />}
+      
 
     </>
 

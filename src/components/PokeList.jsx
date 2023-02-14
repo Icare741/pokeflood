@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PokeFav from './PokeFav';
-
+import './PokeList.css';
 function PokeList({ pokemonList, setPokemonList, favPokemon, setFavPokemon }) {
 
     const [loaded, setLoaded] = useState(false)// state pour loading de pokemon
@@ -46,7 +46,7 @@ function PokeList({ pokemonList, setPokemonList, favPokemon, setFavPokemon }) {
             <img src={selectedPokemonId === pokemonId ? (isBackSprite ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemonId}.png` : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`) : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`} alt={pokemon.name} />
             <PokeFav pokemon={pokemon} favPokemon={favPokemon} setFavPokemon={setFavPokemon} />
             <button onClick={() => handleBackSprite(pokemonId)} className="btn btn-primary">
-              {isBackSprite ? 'Front' : 'Back'}
+              {isBackSprite ? 'Flip' : 'flip'}
             </button>
           </div>
         </div>
@@ -61,7 +61,10 @@ function PokeList({ pokemonList, setPokemonList, favPokemon, setFavPokemon }) {
             onChange={handleSearch} 
             value={searchValue}
         />
+        <div className="container">
+        
         {loaded ? pokemonListItems:<img src={require('./Pokeload.gif')} alt="loading" />}
+        </div>
       </div>
     );
   }

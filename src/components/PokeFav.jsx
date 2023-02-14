@@ -38,7 +38,4 @@ const PokeFav = ({ pokemon,favPokemon,setFavPokemon }) => {
         </button>
     )
 }
-/*<button onClick={handleFavClick} className="btn btn-primary">
-            {isFav ? <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`} alt={pokemon.name} /> : <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemonId}.png`} alt={pokemon.name} />}
-        </button>*/
 export default PokeFav;
